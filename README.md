@@ -1,7 +1,7 @@
 # ur.janky.click
 Random Dad Jokes webpage that calls https://icanhazdadjoke.com to obtain jokes
 
-View the webpage here: https://kuhl-haus.github.io/ur.janky.click/
+View the webpage here: https://ur.janky.click
 
 ---
 
