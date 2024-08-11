@@ -3,6 +3,8 @@ Random Dad Jokes webpage that calls https://icanhazdadjoke.com to obtain jokes
 
 View the webpage here: https://ur.janky.click
 
+Read [why I created this site.](https://the.oldschool.engineer/automating-laughter-building-a-random-dad-joke-site-in-an-hour-dc35e0627674)
+
 ---
 
 ## Calling the Jokes API
