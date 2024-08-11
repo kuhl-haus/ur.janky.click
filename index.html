@@ -19,30 +19,6 @@
     }
   </style>
 </head>
-<script>
-  function fetchJoke() {
-    fetch('https://icanhazdadjoke.com/', {
-      headers: {
-        'Accept': 'application/json',
-        // If you fork this code, please remove my repo from the user-agent header
-        // Refer to the API documentation here: https://icanhazdadjoke.com/api
-        'User-Agent': 'UR Janky (https://github.com/kuhl-haus/ur.janky.click)'
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('joke').textContent = data.joke;
-      document.getElementById('jokeId').textContent = "Joke ID: " + data.id;
-    })
-    .catch(error => {
-      console.error('Error fetching joke:', error);
-      document.getElementById('joke').textContent = 'Sorry, an error occurred while fetching the joke.';
-    });
-  }
-
-  // Fetch and display the first joke on page load
-  fetchJoke();
-</script>
 <body>
   <h1>Random Dad Joke</h1>
   <span>
@@ -58,5 +34,29 @@
     <br/><br/>
     Site source code: <a rel="noopener noreferrer" href="https://github.com/kuhl-haus/ur.janky.click">https://github.com/kuhl-haus/ur.janky.click</a>
   </span>
+  <script>
+    function fetchJoke() {
+      fetch('https://icanhazdadjoke.com/', {
+        headers: {
+          'Accept': 'application/json',
+          // If you fork this code, please remove my repo from the user-agent header
+          // Refer to the API documentation here: https://icanhazdadjoke.com/api
+          'User-Agent': 'UR Janky (https://github.com/kuhl-haus/ur.janky.click)'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('joke').textContent = data.joke;
+        document.getElementById('jokeId').textContent = "Joke ID: " + data.id;
+      })
+      .catch(error => {
+        console.error('Error fetching joke:', error);
+        document.getElementById('joke').textContent = 'Sorry, an error occurred while fetching the joke.';
+      });
+    }
+  
+    // Fetch and display the first joke on page load
+    fetchJoke();
+  </script>
 </body>
 </html>

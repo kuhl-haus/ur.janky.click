@@ -9,7 +9,7 @@ View the webpage here: https://ur.janky.click
 
 Refer to the API documentation here: https://icanhazdadjoke.com/api
 
-Note: If you fork/copy this code, please remove my repo from the [user-agent header](https://github.com/kuhl-haus/ur.janky.click/blob/mainline/index.html#L25-L29).  Thanks!
+Note: If you fork/copy this code, please remove my repo from the [user-agent header](https://github.com/kuhl-haus/ur.janky.click/blob/mainline/index.html#L42-L44).  Thanks!
 
 ---
 
