@@ -17,6 +17,11 @@
       padding: 10px 20px;
       margin-top: 20px;
     }
+    input {
+      font-size: 16px;
+      padding: 5px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -24,12 +29,19 @@
   <span>
     <div id="joke"></div>
     <br/>
-    <button onclick="fetchJoke()">Get New Joke</button>
+    <hr>
+    <div id="jokeId"></div>
+    <br/>
+    <button onclick="fetchJoke()">Get Random Joke</button>
     <br/><br/>  
+  </span>
+  <span>
+    <input type="text" id="jokeIdInput" placeholder="Enter Joke ID">
+    <button onclick="fetchJokeById()">Get Joke by ID</button>
+    <br/><br/>
   </span>
   <hr>
   <span>
-    <div id="jokeId"></div>
     Jokes courtesy of <a rel="noopener noreferrer" href="https://icanhazdadjoke.com">https://icanhazdadjoke.com</a>
     <br/><br/>
     Site source code: <a rel="noopener noreferrer" href="https://github.com/kuhl-haus/ur.janky.click">https://github.com/kuhl-haus/ur.janky.click</a>
@@ -37,8 +49,12 @@
     Read <a rel="noopener noreferrer" href="https://the.oldschool.engineer/automating-laughter-building-a-random-dad-joke-site-in-an-hour-dc35e0627674">why I created this site</a>.
   </span>
   <script>
-    function fetchJoke() {
-      fetch('https://icanhazdadjoke.com/', {
+    function fetchJoke(jokeId = null) {
+      const url = jokeId 
+        ? `https://icanhazdadjoke.com/j/${jokeId}`
+        : 'https://icanhazdadjoke.com/';
+
+      fetch(url, {
         headers: {
           'Accept': 'application/json',
           // If you fork this code, please remove my repo from the user-agent header
@@ -54,10 +70,20 @@
       .catch(error => {
         console.error('Error fetching joke:', error);
         document.getElementById('joke').textContent = 'Sorry, an error occurred while fetching the joke.';
+        document.getElementById('jokeId').textContent = '';
       });
     }
+
+    function fetchJokeById() {
+      const jokeId = document.getElementById('jokeIdInput').value.trim();
+      if (jokeId) {
+        fetchJoke(jokeId);
+      } else {
+        alert('Please enter a valid Joke ID');
+      }
+    }
   
-    // Fetch and display the first joke on page load
+    // Fetch and display a random joke on page load
     fetchJoke();
   </script>
 </body>
